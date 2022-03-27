@@ -93,13 +93,13 @@ namespace WebApp_Omnivus.Controllers
                         }
                         else
                         {
-                            form.ErrorMessage = "Det var ett problem när din profil skapades. Försök att skapa en ny profil igen";
+                            form.ErrorMessage = "There was a problem when your profile was created. Try and create a new profile";
                         }
                     }
                 }
                 else
                 {
-                    form.ErrorMessage = "Det finns redan en användare med samma E-postadress";
+                    form.ErrorMessage = "There is already a user with that email";
                 }
 
             }
@@ -142,7 +142,7 @@ namespace WebApp_Omnivus.Controllers
                 }
             }
 
-            form.ErrorMessage = "Fel E-postadress eller lösenord";
+            form.ErrorMessage = "Incorrect mail or password";
             return View(form);
         }
 
