@@ -1,0 +1,68 @@
+﻿@model WebApp_Omnivus.Models.UserProfile
+
+@{
+    ViewData["Title"] = "Change profile";
+}
+<partial name="_HeaderPartial"/>
+
+<section id="edit-profile">
+    <div class="card mt-5" style="width: 20rem;">
+        <div class="card-body text-center">
+            <h4>Change profile for:<br />@Model.DisplayName</h4>
+            <form asp-action="RoleChange">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <label asp-for="StreetName" class="control-label"></label>
+                    <input asp-for="StreetName" class="form-control" />
+                    <span asp-validation-for="StreetName" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <label asp-for="PostalCode" class="control-label"></label>
+                    <input asp-for="PostalCode" class="form-control" />
+                    <span asp-validation-for="PostalCode" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <label asp-for="Country" class="control-label"></label>
+                    <input asp-for="Country" class="form-control" />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-2">
+                    
+                    Roleoptions: admin or user
+                    <input asp-for="Role" class="form-control" />
+                    <span asp-validation-for="Role" class="text-danger"></span>
+                </div>
+                <div class="form-text text-center text-danger mb-3">
+                    @Model.ErrorMessage
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn" />
+                </div>
+            </form>
+            <div class="mt-2" >
+                <a asp-action="Users">Back to Users Administration</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

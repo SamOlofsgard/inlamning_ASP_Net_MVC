@@ -1,0 +1,40 @@
+﻿@model WebApp_Omnivus.Models.Forms.SignInForm
+
+@{
+    ViewData["Title"] = "Sign in";
+}
+<div class="d-flex justify-content-center align-items-center vh-100 ">
+    <div class="container">
+        <div id="signin" >
+            <div>
+                <div class="title" >
+                    <h1>@ViewData["Title"]</h1>
+                    <p>Sign in with your email and password <a asp-action="SignUp">Create a new user here.</a> </p>
+                </div>
+                <div class="text-center" >
+                    <form asp-action="SignIn" asp-route-returnUrl="@Model.ReturnUrl" >
+                        <div class="col-12 mb-3" >
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" type="text" class="form-control mb-1 " placeholder="Type your email"/>
+                            <span asp-validation-for="Email" class="text-danger" ></span>
+                        </div>
+                        <div class="col-12 mb-3" >
+                            <label asp-for="Password" class="control-label"></label>
+                            <input asp-for="Password" type="password" class="form-control mb-1 " placeholder="Type your password"/>
+                            <span asp-validation-for="Password"  class="text-danger" ></span>
+                        </div>
+                        <div class="form-text text-center text-danger mb-3">
+                            @Model.ErrorMessage
+                        </div>  
+                        <div class="col-12" >
+                            <button type="submit" class="btn btn-secondary">@ViewData["Title"]</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

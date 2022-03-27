@@ -1,0 +1,38 @@
+﻿@model WebApp_Omnivus.Models.Forms.ProfileImageUploadForm
+
+@{
+    ViewData["Title"] = "Upload your profileimage";
+}
+<partial name="_HeaderPartial"/>
+
+<section id="UploadFile">
+    <div class="card mt-5" style="width: 20rem;">
+        <div class="card-body text-center">
+            <h4>Upload your Image</h4>
+            <form asp-action="FileUpload" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="File" class="form-label"></label>
+                    <input asp-for="File" class="form-control" type="file">
+                    <span asp-validation-for="File" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <input type="submit" value="Upload image" class="btn" />
+                </div>
+            </form>
+            <div>
+                <a asp-controller="Profile" asp-action="Index" asp-route-id="@User.FindFirst("UserId").Value">Back to your profile</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

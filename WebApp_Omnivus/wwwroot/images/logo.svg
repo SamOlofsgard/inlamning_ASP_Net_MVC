@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="322" height="183" viewBox="0 0 322 183">
+  <defs>
+    <filter id="bg" x="0" y="0" width="322" height="183" filterUnits="userSpaceOnUse">
+      <feOffset dy="8" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feFlood flood-color="#d5e8ff" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="logo" transform="translate(-276 16)">
+    <g transform="matrix(1, 0, 0, 1, 276, -16)" filter="url(#bg)">
+      <rect id="bg-2" data-name="bg" width="274" height="135" transform="translate(24 16)" fill="#fff"/>
+    </g>
+    <text id="IT_Service_Technology" data-name="IT Service &amp; Technology" transform="translate(437.171 87.748)" fill="#6c90b9" font-size="14" font-family="SegoeUI, Segoe UI"><tspan x="-73.849" y="0">IT Service &amp; Technology</tspan></text>
+    <text id="OmniVus." transform="translate(436.571 61.748)" fill="#002249" font-size="40" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing="-0.03em"><tspan x="-97.1" y="0">OmniVus.</tspan></text>
+  </g>
+</svg>

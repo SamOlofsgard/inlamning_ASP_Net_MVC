@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebApp_Omnivus.Models.Entities.ProfileEntity>
+@{
+    ViewData["Title"] = "Users";
+}
+<partial name="_HeaderPartial"/>
+
+
+<section id="Users">   
+    <h1>Users</h1>
+    <div class="users">
+        @foreach (var item in Model)
+        {
+            @if (item.UserId != User.FindFirst("UserId").Value)
+            {
+                <div class="card mt-5" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</h5>
+                        <p class="card-text">
+                            Adress:<br />
+                            @Html.DisplayFor(modelItem => item.StreetName)<br />
+                            @Html.DisplayFor(modelItem => item.PostalCode) @Html.DisplayFor(modelItem => item.City)<br />
+                            @Html.DisplayFor(modelItem => item.Country)<br />
+                        </p>
+                        <div>
+                            <a asp-controller="Admin" asp-action="RoleChange" asp-route-id="@item.UserId">Change profile and role</a> <br/>
+                            <a asp-controller="Profile" asp-action="Delete" asp-route-id="@item.Id">Delete user</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</section>    
+
+   

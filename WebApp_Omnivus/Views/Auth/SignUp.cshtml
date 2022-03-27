@@ -1,0 +1,75 @@
+﻿@model WebApp_Omnivus.Models.Forms.SignUpForm
+
+@{
+    ViewData["Title"] = "Sign up";
+}
+<section id="signup">
+    <div class="d-flex justify-content-center align-items-center vh-100 ">
+        <div class="container">            
+                <div class="title">
+                    <h1>@ViewData["Title"]</h1>
+                    <p>Already a user?<a asp-action="SignIn"> Sign in here</a> </p>
+                </div>
+                <div>
+                    <form class="form-signup"  asp-action="SignUp" asp-route-returnUrl="@Model.ReturnUrl">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group box1">
+                            <label asp-for="FirstName" class="control-label"></label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group box2">
+                            <label asp-for="LastName" class="control-label"></label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group box3">
+                            <label asp-for="StreetName" class="control-label"></label>
+                            <input asp-for="StreetName" class="form-control" />
+                            <span asp-validation-for="StreetName" class="text-danger"></span>                            
+                        </div>
+                        <div class="form-group box4">
+                            <label asp-for="PostalCode" class="control-label"></label>
+                            <input asp-for="PostalCode" class="form-control" />
+                            <span asp-validation-for="PostalCode" class="text-danger"></span>                            
+                        </div>
+                        <div class="form-group box5">
+                            <label asp-for="City" class="control-label"></label>
+                            <input asp-for="City" class="form-control" />
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                        <div class="form-group box6">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group box7">
+                            <label asp-for="Password" class="control-label"></label>
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group box8">
+                            <label asp-for="ConfirmPassword" class="control-label"></label>
+                            <input asp-for="ConfirmPassword" class="form-control" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>                        
+                        </div>
+                        <div class="form-text text-center text-danger mb-3">
+                            @Model.ErrorMessage
+                        </div>
+                        <div class="form-group mt-5 box9 ">                            
+                            <button type="submit" class="btn">Sign up</button>
+                        </div>
+                    </form>
+                    <div class="home">
+                        <a  asp-controller="Home" asp-action="Index">Back to homepage</a>
+                    </div>
+                </div>            
+        </div>
+    </div>
+</section>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

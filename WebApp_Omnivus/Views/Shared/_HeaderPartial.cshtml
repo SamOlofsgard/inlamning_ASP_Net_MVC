@@ -1,0 +1,80 @@
+﻿@*Header del*@
+<section id="top-showcase">
+
+
+
+
+
+
+
+    <div class="logo-placeholder">
+        <div class="logo" >
+            <h1>OmniVus.</h1>
+            <p>IT Service & Technology</p>
+        </div>
+        
+        @*<img class="logo" src="images/logo.svg">*@
+    </div>
+    <nav class="navbar" id="top">
+        <div class="container-fluid top">
+            
+            @if (SignInManager.IsSignedIn(User))
+            {
+                
+                    <a asp-controller="Profile" asp-action="Index" asp-route-id="@User.FindFirst("UserId").Value">@await ProfileManager.DisplayNameAsync(User.FindFirst("UserId").Value)</a>
+                <div class="social nav-link" >
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a asp-controller="Admin" asp-action="Users">Administrate Users</a>
+                    }                    
+                </div>                
+            }
+            else
+            {
+                <a id="info-mail" asp-controller="Page404" asp-action="Index">info@domain.com</a>
+                
+                <div class="social">
+                    <a href="https://facebook.com">facebook</a>
+                    <a href="https://twitter.com">twitter</a>
+                    <a href="https://linkedin.com">linkedin</a>
+                    <a href="https://youtube.com">youtube</a>
+                </div>
+            }
+        </div>
+    </nav>
+
+
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a aria-current="page" asp-controller="Home" asp-action="Index" >Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Services" asp-action="Index" >Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Contact" asp-action="Index">Contact</a>
+                    </li>                  
+                    
+                    
+                    @if(SignInManager.IsSignedIn(User))
+                        {                        
+                            <a class="btn-top" asp-controller="Auth" asp-action="SignOut">Sign Out</a>
+                        }
+                        else
+                        {
+                            <a class="btn-top" asp-controller="Auth" asp-action="SignIn">Sign in</a>   
+                        }
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
+
+

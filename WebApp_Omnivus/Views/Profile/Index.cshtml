@@ -1,0 +1,32 @@
+﻿@model WebApp_Omnivus.Models.ViewModels.ProfileViewModel
+
+@{
+    ViewData["Title"] = Model.Profile.FirstName;
+}
+
+<partial name="_HeaderPartial"/>
+<section id="profile" >
+    <div class="card mt-5" style="width: 18rem;">
+
+        <div class="card-body text-center">
+            <h5 class="card-title">@Model.Profile.DisplayName</h5>
+            <p class="card-text">@Model.Profile.Email</p>
+            <img src="@("~/profileImages/"+Model.ProfileImage.FileName)" asp-append-version="true" height="150" width="150" style="border-radius: 20%" />
+
+            <p class="card-text">
+                Adress:<br />
+                @Model.Profile.StreetName<br />
+                @Model.Profile.PostalCode @Model.Profile.City<br />
+                @Model.Profile.Country<br />
+            </p>
+            <p class="card-text">Role:@Model.Profile.Role</p>
+
+
+            <a asp-controller="Profile" asp-action="FileUpload" asp-route-id="@Model.Profile.UserId">Upload or change profileimage</a>
+            <br />
+            <a asp-controller="Profile" asp-action="Edit" asp-route-id="@Model.Profile.UserId">Change your profile</a>
+
+        </div>
+    </div>
+</section>
+
